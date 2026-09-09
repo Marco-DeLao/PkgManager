@@ -1,4 +1,4 @@
-Proprietary
+Proprietary License (Revised)
 
 Copyright (c) 2026 Marco DeLao
 All rights reserved except as explicitly granted below.
@@ -9,27 +9,87 @@ copy, modify, and merge the Software, and to contribute changes back
 to this project via issues and pull requests, subject to the
 following conditions:
 
-1. The above copyright notice and this permission notice shall be
+1. NOTICE
+   The above copyright notice and this permission notice shall be
    included in all copies or substantial portions of the Software.
 
-2. The Software, in whole or in part, may NOT be sold, sublicensed,
-   or distributed for commercial gain, whether in original or
-   modified form, without express written permission from the
-   copyright holder.
+2. NO COMMERCIAL USE WITHOUT PERMISSION
+   The Software, in whole or in part — including any Modified Version
+   (as defined below) — may NOT be:
+   a. sold, resold, or sublicensed;
+   b. distributed for commercial gain in any form, physical or digital;
+   c. offered as part of a paid product, paid service, or subscription;
+   d. hosted, deployed, or offered as a hosted/managed service
+      (including Software-as-a-Service, API access, or "white-label"
+      offerings) where users pay for access to the Software's
+      functionality, whether or not the underlying code is exposed
+      to them; or
+   e. bundled, embedded, or incorporated into any other software,
+      product, or service that is sold or monetized, even if the
+      Software is not sold separately,
+   without express written permission from the copyright holder.
 
-3. Contributions (via issues or pull requests) submitted to this
-   project are welcome. By submitting a contribution, you agree that
-   it may be incorporated into the Software under the same terms as
-   this license, and you grant the copyright holder the right to use,
-   modify, and distribute your contribution as part of the Software.
+   "Commercial gain" includes, without limitation, direct sales,
+   subscription or usage fees, advertising revenue directly tied to
+   the Software's functionality, and use by a for-profit entity in
+   the operation of its internal revenue-generating business
+   processes. Purely personal, educational, non-profit, or internal
+   evaluation use is permitted and is not considered commercial gain.
 
-4. If you are fixing a bug or adding a feature, please include a
+3. MODIFIED VERSIONS DO NOT ESCAPE THIS LICENSE
+   A "Modified Version" means any version of the Software that has
+   been changed, adapted, translated, refactored, or built upon,
+   regardless of the extent of the changes or whether it is
+   rebranded, renamed, or restructured. No amount of modification
+   removes a Modified Version from the restrictions in Section 2.
+   Only a complete, independent rewrite that shares no code,
+   structure, or substantial expression with the original Software
+   is exempt, and even then, must not incorporate any original
+   Software code.
+
+4. FORM OF PERMISSION
+   Any permission granted under Section 2 must be:
+   a. in writing (email is acceptable) from the copyright holder
+      identified above, or their verified designated representative;
+   b. specific as to scope (what is permitted, for how long, and by
+      whom); and
+   c. retained by the licensee as proof of authorization.
+   Verbal agreements, implied consent, or silence do not constitute
+   permission.
+
+5. CONTRIBUTIONS
+   Contributions (via issues or pull requests) submitted to this
+   project are welcome. By submitting a contribution, the contributor:
+   a. agrees it may be incorporated into the Software under the same
+      terms as this license;
+   b. grants the copyright holder an irrevocable, worldwide,
+      royalty-free license to use, modify, and distribute the
+      contribution as part of the Software; and
+   c. represents that they have the right to grant this license
+      (i.e., the contribution is original or properly licensed to
+      them).
+
+6. TESTING DISCLOSURE
+   If you are fixing a bug or adding a feature, please include a
    short description of how you tested it.
+
+7. GOVERNING LAW
+   This license shall be governed by and construed in accordance with
+   the laws of [INSERT JURISDICTION], without regard to its conflict
+   of law provisions. Any dispute arising under this license shall be
+   subject to the exclusive jurisdiction of the courts of
+   [INSERT JURISDICTION].
+
+8. TERMINATION
+   Any use in violation of Section 2 automatically terminates the
+   rights granted under this license. Upon termination, all copies of
+   the Software and any Modified Versions in the violating party's
+   possession or control must be destroyed or removed from use.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
 OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 IN NO EVENT SHALL THE AUTHOR OR COPYRIGHT HOLDER BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+TORT OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
