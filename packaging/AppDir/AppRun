@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+here="$(dirname "$(readlink -f "$0")")"
+exec "$here/usr/bin/pkgmanager" "$@"

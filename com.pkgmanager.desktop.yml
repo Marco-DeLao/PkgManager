@@ -1,0 +1,43 @@
+app-id: com.pkgmanager.desktop
+runtime: org.gnome.Platform
+runtime-version: '49'
+sdk: org.gnome.Sdk
+command: pkgmanager
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --device=dri
+  - --filesystem=host:ro
+  - --socket=session-bus
+  - --env=WEBKIT_DISABLE_SANDBOX_THIS_IS_DANGEROUS=1
+  - --talk-name=org.freedesktop.PolicyKit1
+  - --talk-name=org.freedesktop.Flatpak
+  - --own-name=org.pkgmanager.desktop
+modules:
+  - name: pkgmanager
+    buildsystem: simple
+    build-commands:
+      - install -D app /app/bin/pkgmanager
+      - install -D com.pkgmanager.desktop.desktop /app/share/applications/com.pkgmanager.desktop.desktop
+      - install -D icon.png /app/share/icons/hicolor/128x128/apps/com.pkgmanager.desktop.png
+    sources:
+      - type: dir
+        path: .
+        skip:
+          - .git
+          - node_modules
+          - target
+          - dist
+          - .flatpak-builder
+          - flatpak-build
+          - flatpak-repo
+      - type: file
+        path: src-tauri/target/debug/app
+        dest-filename: app
+      - type: file
+        path: com.pkgmanager.desktop.desktop
+        dest-filename: com.pkgmanager.desktop.desktop
+      - type: file
+        path: icon.png
+        dest-filename: icon.png

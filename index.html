@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PkgManager</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="brand-row">
+                    <div>
+                        <h1>PkgManager</h1>
+                        <p class="subtitle">Unified Linux Package Manager</p>
+                    </div>
+                    <button id="githubLink" class="github-link" type="button" aria-label="Open PkgManager on GitHub" title="Open GitHub profile">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.48.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Container -->
+        <div class="container">
+            <!-- Path Selection Section -->
+            <div class="section path-selector" id="pathSelector">
+                <h2>Scan Configuration</h2>
+                <div class="path-input-group">
+                    <label for="scanPath">Scan Path:</label>
+                    <input type="text" id="scanPath" value="/" placeholder="Enter path to scan">
+                    <button id="pickPathBtn" type="button">Choose folder</button>
+                    <button id="scanBtn" class="primary-btn">Start Scan</button>
+                </div>
+                <div id="scanStatus" class="scan-status"></div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" class="results-section hidden">
+                <!-- Summary Stats -->
+                <div class="summary-stats">
+                    <div class="stat-card">
+                        <div class="stat-label">Total Packages</div>
+                        <div class="stat-value" id="totalPackages">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Size</div>
+                        <div class="stat-value" id="totalSize">0 MB</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Duplicates Found</div>
+                        <div class="stat-value" id="duplicateCount">0</div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-label">Wasted Space</div>
+                        <div class="stat-value" id="wastedSpace">0 MB</div>
+                        <div class="stat-breakdown" id="wastedSpaceBreakdown">Duplicates: 0 B · Orphans: 0 B</div>
+                    </div>
+                </div>
+
+                <div class="search-bar results-search">
+                    <label class="search-label" for="packageSearch">Search packages</label>
+                    <input type="search" id="packageSearch" placeholder="Search by package name, version, or path..." autocomplete="off">
+                    <div class="filter-group">
+                        <label class="search-label" for="sourceFilter">Source</label>
+                        <select id="sourceFilter">
+                            <option value="">All Sources</option>
+                            <option value="APT">APT</option>
+                            <option value="RPM">RPM</option>
+                            <option value="Pacman">Pacman</option>
+                            <option value="Flatpak">Flatpak</option>
+                            <option value="Snap">Snap</option>
+                            <option value="AppImage">AppImage</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="all-packages">All Packages</button>
+                    <button class="tab-btn" data-tab="duplicates">Duplicates</button>
+                    <button class="tab-btn" data-tab="install">Install</button>
+                    <button class="tab-btn" data-tab="updates">Updates</button>
+                    <button class="tab-btn" data-tab="orphans">Orphans</button>
+                </div>
+                <p id="tabDescription" class="tab-description">A complete list of every package installed on your system, from every source.</p>
+
+                <!-- All Packages Tab -->
+                <div id="all-packages" class="tab-content active">
+                    <div class="packages-table-container">
+                        <table id="packagesTable" class="packages-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Source</th>
+                                    <th>Version</th>
+                                    <th>Size</th>
+                                    <th>Install Path</th>
+                                    <th>Cleanup</th>
+                                </tr>
+                            </thead>
+                            <tbody id="packagesTableBody">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Duplicates Tab -->
+                <div id="duplicates" class="tab-content">
+                    <div id="duplicatesContainer">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div id="install" class="tab-content">
+                    <div class="install-search">
+                        <label for="installSearch">Find a package</label>
+                        <input id="installSearch" type="search" placeholder="Search package names" autocomplete="off">
+                        <button id="installSearchBtn" type="button" class="primary-btn">Search</button>
+                    </div>
+                    <div id="installStatus" class="scan-status"></div>
+                    <div id="installResults" class="install-results"></div>
+                </div>
+
+                <div id="updates" class="tab-content">
+                    <div class="updates-toolbar">
+                        <button id="checkUpdatesBtn" type="button" class="primary-btn">Check for Updates</button>
+                        <button id="updateAllBtn" type="button" class="primary-btn hidden">Update All</button>
+                    </div>
+                    <div id="updatesStatus" class="scan-status"></div>
+                    <div id="updatesResults" class="updates-results"></div>
+                </div>
+
+                <div id="orphans" class="tab-content">
+                    <div class="updates-toolbar"><button id="checkOrphansBtn" type="button" class="primary-btn">Check for Orphans</button><button id="cleanOrphansBtn" type="button" class="danger-btn hidden">Clean All Orphans</button></div>
+                    <div id="orphansStatus" class="scan-status"></div>
+                    <div id="orphansResults" class="updates-results"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <dialog id="cleanupDialog" class="cleanup-dialog">
+        <form method="dialog">
+            <h2>Cleanup Preview</h2>
+            <div id="cleanupDetails"></div>
+            <div id="cleanupConfirmation" class="cleanup-confirmation hidden">
+                <label for="confirmationInput">Type the exact confirmation text:</label>
+                <div class="confirmation-hint">Required text: <code id="confirmationHint"></code></div>
+                <input id="confirmationInput" type="text" autocomplete="off">
+                <button id="confirmCleanupBtn" type="button" class="danger-btn">Confirm and remove</button>
+            </div>
+            <div class="dialog-actions">
+                <button value="cancel">Close</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="installDialog" class="cleanup-dialog">
+        <form method="dialog">
+            <h2>Install Preview</h2>
+            <div id="installDetails"></div>
+            <div class="cleanup-confirmation">
+                <label for="installConfirmationInput">Type the exact confirmation text:</label>
+                <div class="confirmation-hint">Required text: <code id="installConfirmationHint"></code></div>
+                <input id="installConfirmationInput" type="text" autocomplete="off">
+                <button id="confirmInstallBtn" type="button" class="primary-btn">Confirm and install</button>
+                <button id="cancelInstallBtn" type="button" class="danger-btn hidden">Cancel install</button>
+            </div>
+            <div class="dialog-actions">
+                <button value="cancel">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="updatesDialog" class="cleanup-dialog">
+        <form method="dialog">
+            <h2>Update Preview</h2>
+            <div id="updatesDetails"></div>
+            <div class="cleanup-confirmation">
+                <label for="updatesConfirmationInput">Type the exact confirmation text:</label>
+                <div class="confirmation-hint">Required text: <code id="updatesConfirmationHint"></code></div>
+                <input id="updatesConfirmationInput" type="text" autocomplete="off">
+                <button id="confirmUpdatesBtn" type="button" class="primary-btn">Confirm and update</button>
+            </div>
+            <div class="dialog-actions"><button value="cancel">Cancel</button></div>
+        </form>
+    </dialog>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

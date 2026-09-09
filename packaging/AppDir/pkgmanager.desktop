@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=PkgManager
+Comment=Manage, update, and clean Linux packages
+Exec=pkgmanager
+Icon=pkgmanager
+Terminal=false
+Type=Application
+Categories=System;Utility;
