@@ -2,7 +2,7 @@
 
 <img src="assets/banner.svg" alt="PkgManager banner" width="100%" />
 
-<br/>
+<br/><br/>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-3b82f6.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Linux-3b82f6.svg)](#-supported-distributions)
@@ -10,7 +10,6 @@
 
 **A unified desktop app for managing packages across every package manager on your Linux system — in one place.**
 
-[Download](#-download) · [Features](#-features) · [Supported Distributions](#-supported-distributions) · [Build from Source](#-build-from-source)
 
 </div>
 
