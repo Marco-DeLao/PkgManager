@@ -102,22 +102,9 @@ To build the AppImage (uses a manual `appimagetool`-based script, since Tauri's 
 - **Frontend:** HTML / CSS / JavaScript
 - **Packaging:** `.deb`, `.rpm`, AppImage
 
-## 📌 Known Limitations
-
-- Flatpak packaging of PkgManager itself is not currently provided — use the AppImage, `.deb`, or `.rpm` instead.
-- Snap support is implemented but has seen limited real-world testing.
-- The graphical interface has been fully verified on Arch Linux; on Ubuntu and Fedora, the backend logic (scanning, searching, installing, updating) has been verified against real systems, but full visual/GUI verification on those distributions is still pending.
 
 ## 🤝 Contributing
 
 Issues and pull requests are welcome. If you're fixing a bug or adding a feature, please include a short description of how you tested it.
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## 👤 Author
-
-Built by [Marco-DeLao](https://github.com/Marco-DeLao).
 
 ---
