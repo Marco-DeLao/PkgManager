@@ -16,7 +16,7 @@
 
 ---
 
-## ✨ Features
+##  Features
 
 | Tab | What it does |
 |---|---|
@@ -27,12 +27,12 @@
 | **Orphans** | Finds leftover dependency packages that nothing on your system needs anymore, and lets you clean them up safely. |
 
 **Built-in safety, on every action:**
-- 🔒 Every install, update, or removal requires an explicit, typed confirmation — no accidental one-click destructive actions.
-- 🛡️ Privileged operations go through **Polkit**, never running the whole app as root.
-- 📜 A local **audit log** records every change made — what was installed or removed, when, and how.
-- 🚫 No telemetry, no network calls beyond talking to your package managers — everything runs locally.
+-  Every install, update, or removal requires an explicit, typed confirmation — no accidental one-click destructive actions.
+-  Privileged operations go through **Polkit**, never running the whole app as root.
+-  A local **audit log** records every change made — what was installed or removed, when, and how.
+-  No telemetry, no network calls beyond talking to your package managers — everything runs locally.
 
-## 📥 Download
+##  Download
 
 The easiest way to run PkgManager is the AppImage — a single file, no installation required.
 
